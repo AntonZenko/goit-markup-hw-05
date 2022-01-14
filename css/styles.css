@@ -325,6 +325,9 @@ img {
   position: absolute;
   justify-content: center;
   align-items: center;
+  bottom: 0%;
+  width: 100%;
+  height: 70px;
 
   font-weight: bold;
   font-size: 14px;
@@ -334,9 +337,6 @@ img {
   text-transform: uppercase;
 
   color: var(--base-white-color);
-  bottom: 0%;
-  width: 100%;
-  height: 70px;
   background: rgba(47, 48, 58, 0.8);
 }
 
@@ -480,7 +480,8 @@ img {
   line-height: 26px;
   text-align: center;
   letter-spacing: 0.03em;
-  transition: var(--transition);
+  transition: color var(--transition), background-color var(--transition),
+    box-shadow var(--transition);
 }
 
 .btn-nav:hover,
@@ -662,11 +663,13 @@ img {
   position: fixed;
   top: 0%;
   left: 0%;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  transition: opacity var(--transition);
+  transition: opacity var(--transition), visibility var(--transition);
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 /* modal window */
@@ -677,13 +680,17 @@ img {
   height: 581px;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--base-white-color);
+  transform: translate(-50%, -50%) rotateX(0deg);
+  background-color: var(--base-white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  transition: transform var(--transition);
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) rotateX(-90deg);
+}
 .is-hidden {
   visibility: hidden;
   opacity: 0;
@@ -693,8 +700,8 @@ img {
 .modal-btn {
   position: absolute;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   right: 8px;
   top: 8px;
   width: 30px;
