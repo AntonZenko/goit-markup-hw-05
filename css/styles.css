@@ -16,6 +16,8 @@
   --icons-color: #afb1b8;
 
   --card-set-gap: 30px;
+
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -84,12 +86,15 @@ img {
   letter-spacing: 0.02em;
   padding-top: 32px;
   padding-bottom: 32px;
+  /* transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
+  transition: color var(--transition);
 }
 
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--accent-text-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-icon-item {
@@ -126,12 +131,12 @@ img {
 
 .site-nav .contacts {
   color: var(--primary-text-color);
+  transition: color var(--transition);
 }
 
 .site-nav .contacts:hover,
 .site-nav .contacts:focus {
   color: var(--accent-text-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-item {
@@ -148,7 +153,6 @@ img {
   height: 4px;
   border-radius: 2px;
   background-color: var(--accent-text-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   animation-name: current;
   animation-duration: 250ms;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -200,7 +204,7 @@ img {
   margin-right: auto;
   margin-top: 30px;
   color: var(--base-white-color);
-  background: var(--accent-text-color);
+  background-color: var(--accent-text-color);
   padding: 10px 32px;
   text-decoration: none;
   border: hidden;
@@ -212,12 +216,12 @@ img {
   line-height: 30px;
   text-align: center;
   letter-spacing: 0.06em;
+  transition: background-color var(--transition);
 }
 
 .btn-order:hover,
 .btn-order:focus {
-  background: var(--button-hover);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--button-hover);
 }
 
 /* section features */
@@ -403,13 +407,13 @@ img {
   border-radius: 50%;
   background-color: var(--base-white-color);
   fill: var(--icons-color);
+  transition: background-color var(--transition), fill var(--transition);
 }
 
 .social-link:hover,
 .social-link:focus {
   background-color: var(--accent-text-color);
   fill: var(--base-white-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* customers */
@@ -433,13 +437,13 @@ img {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   fill: var(--icons-color);
+  transition: fill var(--transition), border-color var(--transition);
 }
 
 .customers-link:hover,
 .customers-link:focus {
   fill: var(--accent-text-color);
   border-color: var(--accent-text-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* portfolio - example-nav */
@@ -476,16 +480,15 @@ img {
   line-height: 26px;
   text-align: center;
   letter-spacing: 0.03em;
+  transition: var(--transition);
 }
 
 .btn-nav:hover,
 .btn-nav:focus {
   color: #ffffff;
-  background: var(--accent-text-color);
+  background-color: var(--accent-text-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* portfolio - exapmles */
@@ -532,13 +535,15 @@ img {
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
 }
+.item {
+  transition: box-shadow var(--transition);
+}
 
 .item:hover,
 .item:focus {
   cursor: pointer;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-item-link {
@@ -558,8 +563,8 @@ img {
   top: 0;
   left: 0;
   background-color: rgba(33, 150, 243, 0.9);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(100%);
+  transition: transform var(--transition);
 }
 .overlay-text {
   position: absolute;
@@ -571,12 +576,10 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   min-width: 322px;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-item-link:hover .overlay {
   transform: translateY(0);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* footer */
@@ -606,6 +609,7 @@ img {
   letter-spacing: 0.03em;
 
   color: var(--base-white-color);
+  transition: color var(--transition);
 }
 
 .address .contacts {
@@ -619,7 +623,6 @@ img {
 .address .contacts:hover,
 .address .contacts:focus {
   color: var(--accent-text-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-logo {
@@ -657,5 +660,51 @@ img {
 
 .backdrop {
   position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity var(--transition);
+}
+
+/* modal window */
+
+.modal {
+  position: absolute;
+  width: 528px;
+  height: 581px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--base-white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-btn {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 8px;
+  top: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  background-color: var(--base-white-color);
+}
+
+.modal-close-icon {
+  fill: #000000;
 }
